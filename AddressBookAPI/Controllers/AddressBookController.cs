@@ -26,7 +26,6 @@ namespace AddressBookAPI.Controllers
             return Ok(result);
             return NotFound($"No addresses from {city}");
         }
-
         [HttpGet]
         public ActionResult<Address> Get()
         {
@@ -36,8 +35,7 @@ namespace AddressBookAPI.Controllers
                 return Ok(result);
             return NotFound($"No addresses in address book");
         }
-
-        // POST api/values
+        
         [HttpPost]
         public void Post([FromBody] Address address)
         {
@@ -47,11 +45,5 @@ namespace AddressBookAPI.Controllers
 
        
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-            
-        }
     }
 }
