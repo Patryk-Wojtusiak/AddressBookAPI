@@ -18,38 +18,40 @@ namespace AddressBookAPI.Controllers
         private readonly ILoger _loger;
 
         [HttpGet("{city}")]
-        public ActionResult<List<AddressBook.Model.AddressBook>> Get(string city)
+        public ActionResult<List<Address>> Get(string city)
         {  
             var result = _getData.GetAddressesByCity(city);
             _loger.Log($"requested addresses from {city} and got {result.Count} results");
-            return result;
+            if(result!=null)
+            return Ok(result);
+            return NotFound($"No addresses from {city}");
         }
 
         [HttpGet]
-        public ActionResult<AddressBook.Model.AddressBook> Get()
+        public ActionResult<Address> Get()
         {
             var result = _getData.GetLastAddress();
             _loger.Log($"requested last address and send id={result.Id}");
-            return result;
+            if (result != null)
+                return Ok(result);
+            return NotFound($"No addresses in address book");
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Address address)
         {
-
+            _setData.AddNewAddress(address);
+            _loger.Log("new address added");
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+       
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            
         }
     }
 }

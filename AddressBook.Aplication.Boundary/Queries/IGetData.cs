@@ -12,17 +12,17 @@ namespace AddressBook.Applications.Boundary.Queries
         /// Gets last added Address in address book
         /// </summary>
         /// <returns>Latest address</returns>
-        Model.AddressBook GetLastAddress();
+        Model.Address GetLastAddress();
         /// <summary>
         /// Gets all addresses in address book
         /// </summary>
         /// <returns>list of all addresses</returns>
-        List<Model.AddressBook> GetAllAddresses();
+        List<Model.Address> GetAllAddresses();
         /// <summary>
         /// Get all addresses from city
         /// </summary>
         /// <param name="city">city from witch addresses will be taken</param>
         /// <returns>list of address</returns>
-        List<Model.AddressBook> GetAddressesByCity(string city);
+        List<Model.Address> GetAddressesByCity(string city);
     }
 }

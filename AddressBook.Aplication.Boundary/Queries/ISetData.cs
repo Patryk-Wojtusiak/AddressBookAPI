@@ -10,16 +10,16 @@ namespace AddressBook.Applications.Boundary.Queries
         /// Add new address to address book
         /// </summary>
         /// <param name="address">address to add</param>
-        void AddNewAddress(Model.AddressBook address);
+        void AddNewAddress(Model.Address address);
         /// <summary>
         /// Add sevral addresses to the address book
         /// </summary>
         /// <param name="addresses">list of addresses to add</param>
-        void AddNewAddresses(List<Model.AddressBook> addresses);
+        void AddNewAddresses(List<Model.Address> addresses);
         /// <summary>
         /// Update an address
         /// </summary>
         /// <param name="address">Address to update (need to have correct id field)</param>
-        void UpdateAddress(Model.AddressBook address);
+        void UpdateAddress(Model.Address address);
     }
 }
